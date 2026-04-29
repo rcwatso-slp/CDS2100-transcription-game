@@ -90,7 +90,7 @@ const keyboardGroups = [
   },
   {
     id: "american",
-    label: "English",
+    label: "Affricates and Diphthongs",
     keys: ["tʃ", "dʒ", "eɪ", "aɪ", "ɔɪ", "aʊ", "oʊ", "ju", "əl", "ən", "ɾ", "ʍ", "w"]
   },
   {
