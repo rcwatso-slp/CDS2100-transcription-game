@@ -1,0 +1,449 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+  background: #f3f5f8;
+  --ink: #111827;
+  --muted: #596575;
+  --line: #cbd3df;
+  --paper: #f7f9fc;
+  --panel: #ffffff;
+  --accent: #004b8d;
+  --accent-strong: #003b71;
+  --blue-soft: #e5eef8;
+  --blue-pale: #f1f6fb;
+  --gray-soft: #eef1f5;
+  --status: #64748b;
+  --success: #0f6b57;
+  --missed: #9f2f2f;
+  --shadow: 0 16px 35px rgba(12, 35, 64, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(120deg, rgba(0, 75, 141, 0.09), rgba(226, 232, 240, 0.82)),
+    var(--paper);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  min-height: 42px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(0, 75, 141, 0.2);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.56;
+  transform: none;
+  box-shadow: none;
+}
+
+.appShell {
+  width: min(1380px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 22px 0 32px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.eyebrow,
+.label {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 4.6rem);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: clamp(2.4rem, 7vw, 7rem);
+  line-height: 0.92;
+}
+
+.topActions,
+.actionRow,
+.answerRow,
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.iconBtn {
+  width: 46px;
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+.secondaryBtn,
+.levelButton,
+.keyButton,
+.tabButton {
+  background: #fff;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.secondaryBtn:hover,
+.levelButton:hover,
+.keyButton:hover,
+.tabButton:hover {
+  background: var(--blue-pale);
+}
+
+.gameGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  gap: 18px;
+}
+
+.playPanel,
+.scoreCard {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(203, 211, 223, 0.98);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.playPanel {
+  padding: 18px;
+}
+
+.scorePanel {
+  display: grid;
+  gap: 14px;
+  align-self: start;
+  position: sticky;
+  top: 16px;
+}
+
+.scoreCard {
+  padding: 16px;
+}
+
+.levelStrip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.levelButton {
+  display: grid;
+  min-height: 64px;
+  padding: 10px;
+  text-align: left;
+}
+
+.levelButton strong {
+  display: block;
+}
+
+.levelButton span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.levelButton.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.levelButton.active span {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.challengeHeader {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 150px;
+  padding: 22px;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(0, 75, 141, 0.16), transparent 46%),
+    linear-gradient(110deg, var(--blue-soft), #fff 58%, var(--gray-soft));
+  border: 1px solid #bac7d8;
+}
+
+.speakBtn {
+  flex: 0 0 auto;
+  padding: 0 18px;
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+}
+
+.metaRow {
+  margin: 12px 0 16px;
+}
+
+.metaRow span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+.answerLabel {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.answerRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  margin-bottom: 12px;
+}
+
+input {
+  width: 100%;
+  min-height: 56px;
+  padding: 10px 14px;
+  border: 2px solid #9eb1c7;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-family: "Charis SIL", "Doulos SIL", "Noto Sans", "Segoe UI", sans-serif;
+  font-size: 1.55rem;
+}
+
+input:focus,
+button:focus-visible {
+  outline: 3px solid rgba(0, 75, 141, 0.24);
+  outline-offset: 2px;
+}
+
+.keyboardTabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 14px 0 10px;
+}
+
+.tabButton {
+  min-height: 38px;
+  padding: 6px 11px;
+}
+
+.tabButton.active {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: #fff;
+}
+
+.keyboardPanel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(44px, 1fr));
+  gap: 7px;
+  min-height: 154px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f6f8fb;
+}
+
+.keyButton {
+  min-height: 44px;
+  padding: 0;
+  font-family: "Charis SIL", "Doulos SIL", "Noto Sans", "Segoe UI", sans-serif;
+  font-size: 1.18rem;
+}
+
+.keyButton.wide {
+  grid-column: span 2;
+}
+
+.feedback {
+  min-height: 72px;
+  margin: 14px 0;
+  padding: 12px 14px;
+  border-left: 5px solid var(--status);
+  border-radius: 8px;
+  background: #f1f4f8;
+  color: #263545;
+  font-weight: 650;
+}
+
+.feedback.correct {
+  border-color: var(--success);
+  background: #eaf5f2;
+  color: #123f37;
+}
+
+.feedback.missed {
+  border-color: var(--missed);
+  background: #f8ecec;
+  color: #582525;
+}
+
+.actionRow {
+  justify-content: flex-end;
+}
+
+.actionRow button {
+  min-width: 128px;
+  padding: 0 16px;
+}
+
+.scoreNumber {
+  font-size: 4rem;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.statGrid div {
+  min-height: 70px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #f4f6fa;
+  border: 1px solid var(--line);
+}
+
+.statGrid span {
+  display: block;
+  font-size: 1.45rem;
+  font-weight: 900;
+}
+
+.statGrid small {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.badgeList,
+.historyList {
+  display: grid;
+  gap: 8px;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 800;
+}
+
+.badge.locked {
+  color: var(--muted);
+  background: #f2f4f7;
+  font-weight: 650;
+}
+
+.historyList {
+  padding-left: 20px;
+  max-height: 280px;
+  overflow: auto;
+}
+
+.historyList li {
+  padding: 7px 0;
+  border-bottom: 1px solid #e5eaf1;
+}
+
+.historyList b {
+  display: block;
+}
+
+.historyList span {
+  color: var(--muted);
+  font-family: "Charis SIL", "Doulos SIL", "Noto Sans", "Segoe UI", sans-serif;
+}
+
+@media (max-width: 980px) {
+  .appShell {
+    width: min(100% - 20px, 720px);
+    padding-top: 12px;
+  }
+
+  .gameGrid,
+  .levelStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .scorePanel {
+    position: static;
+  }
+
+  .challengeHeader {
+    align-items: stretch;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .speakBtn {
+    width: 100%;
+  }
+
+  .answerRow {
+    grid-template-columns: 1fr;
+  }
+
+  .answerRow button,
+  .actionRow button {
+    width: 100%;
+  }
+}

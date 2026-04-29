@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CDS 2100 browser game for practicing broad IPA transcription with a full embedded IPA keyboard."
+    />
+    <title>CDS 2100 Transcription Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="appShell">
+      <header class="topBar">
+        <div>
+          <p class="eyebrow">CDS 2100</p>
+          <h1>Transcription Lab</h1>
+        </div>
+        <div class="topActions">
+          <button type="button" class="iconBtn" id="soundToggle" aria-pressed="true" title="Toggle sound">🔊</button>
+          <button type="button" class="secondaryBtn" id="resetBtn">Reset</button>
+        </div>
+      </header>
+
+      <main class="gameGrid">
+        <section class="playPanel" aria-labelledby="challengeTitle">
+          <div class="levelStrip" id="levelStrip"></div>
+
+          <div class="challengeHeader">
+            <div>
+              <p class="label">Word to Transcribe</p>
+              <h2 id="challengeTitle">ready</h2>
+            </div>
+            <button type="button" class="speakBtn" id="speakBtn">Hear Word</button>
+          </div>
+
+          <div class="metaRow">
+            <span id="levelName">Level 1</span>
+            <span id="wordHint">Broad transcription</span>
+            <span id="roundCount">1 / 10</span>
+          </div>
+
+          <label class="answerLabel" for="answerInput">Your IPA transcription</label>
+          <div class="answerRow">
+            <input
+              id="answerInput"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              inputmode="text"
+              placeholder="/.../"
+            />
+            <button type="button" class="secondaryBtn" id="backspaceBtn" title="Backspace">⌫</button>
+            <button type="button" class="secondaryBtn" id="clearBtn">Clear</button>
+          </div>
+
+          <div class="keyboardTabs" id="keyboardTabs" role="tablist" aria-label="IPA keyboard sections"></div>
+          <div class="keyboardPanel" id="keyboardPanel" aria-label="Clickable IPA keyboard"></div>
+
+          <div class="feedback" id="feedback" aria-live="polite">
+            Pick a level, listen to the word, then build your transcription with the keyboard.
+          </div>
+
+          <div class="actionRow">
+            <button type="button" id="hintBtn" class="secondaryBtn">Use Hint</button>
+            <button type="button" id="checkBtn">Check Answer</button>
+            <button type="button" id="nextBtn" class="secondaryBtn">Next Word</button>
+          </div>
+        </section>
+
+        <aside class="scorePanel" aria-label="Game score and progress">
+          <section class="scoreCard">
+            <p class="label">Score</p>
+            <div class="scoreNumber" id="scoreValue">0</div>
+            <div class="statGrid">
+              <div>
+                <span id="accuracyValue">0%</span>
+                <small>Accuracy</small>
+              </div>
+              <div>
+                <span id="streakValue">0</span>
+                <small>Streak</small>
+              </div>
+              <div>
+                <span id="xpValue">0</span>
+                <small>XP</small>
+              </div>
+              <div>
+                <span id="heartsValue">♥♥♥</span>
+                <small>Focus</small>
+              </div>
+            </div>
+          </section>
+
+          <section class="scoreCard">
+            <p class="label">Badges</p>
+            <div class="badgeList" id="badgeList"></div>
+          </section>
+
+          <section class="scoreCard">
+            <p class="label">Round Review</p>
+            <ol class="historyList" id="historyList"></ol>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
